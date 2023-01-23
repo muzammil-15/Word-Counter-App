@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        body{
+            text-align: center;
+            padding: 50px;
+        }
+        h1{
+            text-align: center;
+            padding: 50px 0;
+            background-color: rgb(12, 99, 139);
+            width: 50%;
+            margin-left: 31.8%;
+            color: white;
+            margin-bottom: 0;
+
+        }
+        textarea{
+            width: 49.5%;
+            margin: 0 0;
+            height: 35vh;
+            margin-left: 13.6%;
+            font-size: 18px;
+        }
+        p{
+            text-align: center;
+            padding: 10px 5px;
+            background-color: rgb(12, 99, 139);
+            margin-left: 31.8%;
+            width: 49.3%;
+            font-size: 24px;
+            font-weight:  bold;
+            color: white;
+            margin-top: 0;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Word and Character Counter</h1>
+    <textarea  id="inputArea" cols="30" rows="10" placeholder="Write to Count...."></textarea>
+    <p>
+        <span id="word">0 </span> Words and 
+        <span id="char">0 </span> Characters
+    </p>
+    
+
+    <script>
+        let textBox = document.getElementById("inputArea")
+        textBox.addEventListener("input", function(){
+            var text = this.value;
+            let char = text.length;
+            document.getElementById("char").innerHTML = char;
+
+            text = text.trim();
+            let words = text.split(" ");
+            let cleanList = words.filter(function(elm){
+                return elm != "";
+            })
+            document.getElementById("word").innerHTML = cleanList.length;
+
+        })
+
+    </script>
+</body>
+</html>
